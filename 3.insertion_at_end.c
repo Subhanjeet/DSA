@@ -1,4 +1,4 @@
-// create the node at the ending of linklist
+// insertion of node at the ending of linkedlist
 #include <stdlib.h>
 #include <stdio.h>
 struct node
