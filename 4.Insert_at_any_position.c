@@ -1,35 +1,54 @@
-//linsertion of node at any postion in linkedlist
-#include<Stdio.h>
-#include<stdlib.h>
-struct node{
-    int data;      
+// insert a node at any given position through linkedlist
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
     struct node *link;
 };
-int main(){
-    struct node *head = malloc(sizeof(struct node));
-    head ->data=111;
-    head-> link=NULL;
 
-    struct node *new_node= malloc(sizeof(struct node));
-    new_node->data=222;
-    new_node->link=NULL;
-    head->link=new_node;
-
-    struct node *middle_node = malloc(sizeof(struct node));
-    middle_node->data=333;
-    middle_node->link = NULL;
-    head->link->link=middle_node;
-
-    struct node *last_node= malloc(sizeof(struct node));
-    last_node->data=444; 
-    last_node->link = NULL;
-    head->link->link->link = last_node;
-
-    //main code likhna baki hai.....
-
-    struct node *print =head;
-    while(print != NULL){
-        printf("%d\n",print->data);
-        print=print->link;
+void add_at_pos(struct node *head, int data, int pos)
+{
+    struct node *ptr = head;
+    struct node *ptr2 = malloc(sizeof(struct node));
+    ptr2->data = data;
+    ptr2->link = NULL;
+    pos--;
+    while (pos != 1)
+    {
+        ptr = ptr->link;
+        pos--;
     }
+    ptr2->link = ptr->link;
+    ptr->link = ptr2;
+}
+
+int main()
+{
+    struct node *head = malloc(sizeof(struct node));
+    head->data = 1;
+    head->link = NULL;
+
+    struct node *ptr = malloc(sizeof(struct node));
+    ptr->data = 2;
+    ptr->link = NULL;
+    head->link = ptr;
+
+    ptr = malloc(sizeof(struct node));
+    ptr->data = 3;
+    ptr->link = NULL;
+    head->link->link = ptr;
+
+    int data = 4, position = 3;
+    add_at_pos(head, data, position);
+
+    ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d ", ptr->data);
+        ptr = ptr->link;
+        printf("\n");
+    }
+    return 0;
 }
