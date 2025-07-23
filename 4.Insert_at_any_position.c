@@ -1,4 +1,4 @@
-// insert a node at any given position through linkedlist
+// insertion of node at any given position through linkedlist
 #include <stdio.h>
 #include <stdlib.h>
 
