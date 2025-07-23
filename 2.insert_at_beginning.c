@@ -1,4 +1,4 @@
-// insertion of node at beiginning in linkedlist
+// insertion of node at beiginning of linkedlist
 #include <stdlib.h>
 #include <stdio.h>
 struct node
