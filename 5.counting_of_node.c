@@ -1,37 +1,42 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct node{
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
     int data;
-    struct node *link;
+    struct node *next;
 };
-int count_nodes(struct node *head){
+int count_nodes(struct node *head)
+{
     int count = 0;
-    if(head == NULL){
+    if (head == NULL)
+    {
         return count;
     }
     struct node *ptr = head;
-    while(ptr != NULL){
+    while (ptr != NULL)
+    {
         count++;
-        ptr=ptr->link;
+        ptr = ptr->next;
     }
     return count;
 }
-int main(){
+int main()
+{
     struct node *head = malloc(sizeof(struct node));
-    head -> data = 11;
-    head-> link=NULL;
+    head->data = 11;
+    head->next = NULL;
 
     struct node *second = malloc(sizeof(struct node));
     second->data = 22;
-    second->link = NULL;
-    head -> link = second;
+    second->next = NULL;
+    head->next = second;
 
     struct node *third = malloc(sizeof(struct node));
     third->data = 33;
-    third->link = NULL;
-    second->link = third;
+    third->next = NULL;
+    second->next = third;
 
     int count = count_nodes(head);
-    printf("Number of nodes: %d\n",count);
+    printf("Number of nodes: %d\n", count);
     return 0;
 }

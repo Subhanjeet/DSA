@@ -1,65 +1,72 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct node{
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
     int data;
-    struct node *link;
+    struct node *next;
 };
 
-void del_at_pos(struct node **head_ref, int pos) {
-    if (*head_ref == NULL) {
+void del_at_pos(struct node **head_ref, int pos)
+{
+    if (*head_ref == NULL)
+    {
         printf("List is already empty.\n");
         return;
     }
 
     struct node *temp = *head_ref;
 
-    if (pos == 1) {
-        *head_ref = temp->link;
+    if (pos == 1)
+    {
+        *head_ref = temp->next;
         free(temp);
         return;
     }
 
     struct node *prev = NULL;
-    while (pos != 1 && temp != NULL) {
+    while (pos != 1 && temp != NULL)
+    {
         prev = temp;
-        temp = temp->link;
+        temp = temp->next;
         pos--;
     }
 
-    if (temp == NULL) {
+    if (temp == NULL)
+    {
         printf("Position out of range.\n");
         return;
     }
 
-    prev->link = temp->link;
+    prev->next = temp->next;
     free(temp);
 }
 
-int main(){
-    struct node *head = (struct node*) malloc (sizeof(struct node));
-    head -> data = 10;
-    head -> link = NULL;
-    struct node *second = (struct node*) malloc (sizeof(struct node));
-    second -> data = 20;
-    second -> link = NULL;
-    head ->link = second;
-    struct node *third = (struct node*) malloc (sizeof(struct node));
-    third -> data = 30;
-    third -> link = NULL;
-    second -> link = third;
-    struct node *last = (struct node*) malloc (sizeof(struct node));
-    last -> data = 40;
-    last -> link = NULL;
-    third -> link = last;   
+int main()
+{
+    struct node *head = (struct node *)malloc(sizeof(struct node));
+    head->data = 10;
+    head->next = NULL;
+    struct node *second = (struct node *)malloc(sizeof(struct node));
+    second->data = 20;
+    second->next = NULL;
+    head->next = second;
+    struct node *third = (struct node *)malloc(sizeof(struct node));
+    third->data = 30;
+    third->next = NULL;
+    second->next = third;
+    struct node *last = (struct node *)malloc(sizeof(struct node));
+    last->data = 40;
+    last->next = NULL;
+    third->next = last;
 
     int position = 2;
     del_at_pos(&head, position);
 
     struct node *ptr = head;
-    while(ptr != NULL){
+    while (ptr != NULL)
+    {
         printf("%d ", ptr->data);
-        ptr = ptr->link;
-        }
-        return 0;
-
+        ptr = ptr->next;
+    }
+    return 0;
 }

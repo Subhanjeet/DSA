@@ -4,7 +4,7 @@
 struct node
 {
     int data;
-    struct node *link;
+    struct node *next;
 };
 
 struct node *create(int n)
@@ -23,7 +23,7 @@ struct node *create(int n)
         printf("Enter data for node %d: ", i);
         scanf("%d", &value);
         newNode->data = value;
-        newNode->link = NULL;
+        newNode->next = NULL;
 
         if (head == NULL)
         {
@@ -32,8 +32,8 @@ struct node *create(int n)
         }
         else
         {
-            temp->link = newNode;
-            temp = temp->link;
+            temp->next = newNode;
+            temp = temp->next;
         }
     }
     return head;
@@ -46,7 +46,7 @@ void display(struct node *head)
     while (temp != NULL)
     {
         printf("%d ", temp->data);
-        temp = temp->link;
+        temp = temp->next;
     }
     printf("\n");
 }

@@ -5,7 +5,7 @@
 struct node
 {
     int data;
-    struct node *link;
+    struct node *next;
 };
 
 void add_at_pos(struct node *head, int data, int pos)
@@ -13,32 +13,32 @@ void add_at_pos(struct node *head, int data, int pos)
     struct node *ptr = head;
     struct node *ptr2 = malloc(sizeof(struct node));
     ptr2->data = data;
-    ptr2->link = NULL;
+    ptr2->next = NULL;
     pos--;
     while (pos != 1)
     {
-        ptr = ptr->link;
+        ptr = ptr->next;
         pos--;
     }
-    ptr2->link = ptr->link;
-    ptr->link = ptr2;
+    ptr2->next = ptr->next;
+    ptr->next = ptr2;
 }
 
 int main()
 {
     struct node *head = malloc(sizeof(struct node));
     head->data = 1;
-    head->link = NULL;
+    head->next = NULL;
 
     struct node *ptr = malloc(sizeof(struct node));
     ptr->data = 2;
-    ptr->link = NULL;
-    head->link = ptr;
+    ptr->next = NULL;
+    head->next = ptr;
 
     ptr = malloc(sizeof(struct node));
     ptr->data = 3;
-    ptr->link = NULL;
-    head->link->link = ptr;
+    ptr->next = NULL;
+    head->next->next = ptr;
 
     int data = 4, position = 3;
     add_at_pos(head, data, position);
@@ -47,7 +47,7 @@ int main()
     while (ptr != NULL)
     {
         printf("%d ", ptr->data);
-        ptr = ptr->link;
+        ptr = ptr->next;
         printf("\n");
     }
     return 0;
