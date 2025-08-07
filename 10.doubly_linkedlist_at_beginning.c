@@ -1,5 +1,3 @@
-// Q7. WAP to insert a node at the beginning by doubly linked list
-
 #include <stdio.h>
 #include <stdlib.h>
 
