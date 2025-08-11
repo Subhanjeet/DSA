@@ -1,4 +1,4 @@
-
+//deletion of node at beginning
 #include <stdio.h>
 #include <stdlib.h>
 

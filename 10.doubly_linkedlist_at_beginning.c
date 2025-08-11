@@ -1,3 +1,4 @@
+//insertion of node, at beginnig in doubly linkedlist
 #include <stdio.h>
 #include <stdlib.h>
 

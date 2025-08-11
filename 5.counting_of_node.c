@@ -1,3 +1,4 @@
+//count the number of nodes
 #include <stdio.h>
 #include <stdlib.h>
 struct node

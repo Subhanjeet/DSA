@@ -1,3 +1,4 @@
+//nodes are created by user
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,4 @@
+//deletion of node at end
 #include <stdio.h>
 #include <stdlib.h>
 struct node
